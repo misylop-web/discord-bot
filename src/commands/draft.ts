@@ -40,4 +40,44 @@ export const draft: Command = {
     const subcommand = interaction.options.getSubcommand();
 
     if (subcommand === "anuluj") {
-      const existing = get
+      const existing = getSession(interaction.channelId);
+      if (!existing) { await interaction.reply({ embeds: [buildErrorEmbed("Brak aktywnej sesji draftu.")], ephemeral: true }); return; }
+      deleteSession(interaction.channelId);
+      await interaction.reply({ embeds: [new EmbedBuilder().setColor(0xE74C3C).setTitle("🗑️ Draft Anulowany").setDescription("Sesja draftu została zakończona.").setTimestamp()] });
+      return;
+    }
+
+    if (subcommand === "status") {
+      const existing = getSession(interaction.channelId);
+      if (!existing) { await interaction.reply({ embeds: [buildErrorEmbed("Brak aktywnej sesji. Użyj `/draft start`.") ], ephemeral: true }); return; }
+      await interaction.reply({ embeds: [buildDraftEmbed(existing)], components: [buildBrawlerSelectMenu(existing, "draft_action", existing.phase === "banning" ? "🚫 Wybierz bana" : "✅ Wybierz picka"), buildCancelButton()] });
+      return;
+    }
+
+    if (subcommand === "start") {
+      const existing = getSession(interaction.channelId);
+      if (existing) { await interaction.reply({ embeds: [buildErrorEmbed("Na tym kanale jest już aktywna sesja. Użyj `/draft anuluj`.")], ephemeral: true }); return; }
+
+      const tryb = interaction.options.getString("tryb", true) as GameMode;
+      const mapaNazwa = interaction.options.getString("mapa", true);
+      const team1 = interaction.options.getString("druzyna1") ?? "🔵 Drużyna 1";
+      const team2 = interaction.options.getString("druzyna2") ?? "🔴 Drużyna 2";
+      const mode = MODES[tryb];
+      if (!mode) { await interaction.reply({ embeds: [buildErrorEmbed("Nieznany tryb gry.")], ephemeral: true }); return; }
+
+      const session = createSession(interaction.channelId, interaction.guildId ?? "dm", interaction.user.id, tryb, mapaNazwa, team1, team2);
+      const introEmbed = new EmbedBuilder()
+        .setColor(0xF6A21D)
+        .setTitle("🎯 Nowa Sesja Draftu Rankowego!")
+        .setDescription(
+          `**Host:** <@${interaction.user.id}>\n**Tryb:** ${mode.emoji} ${mode.name}\n**Mapa:** 🗺️ ${mapaNazwa}\n\n` +
+          `**${team1}** vs **${team2}**\n\n` +
+          `📋 **Format:** 6 banów (3 per drużyna) → 6 picków (3 per drużyna)\n` +
+          `*Bany: 🔵→🔴→🔵→🔴→🔵→🔴 | Picki: 🔵→🔴→🔴→🔵→🔵→🔴*`
+        )
+        .setTimestamp()
+        .setFooter({ text: "Użyj menu poniżej by banować" });
+      await interaction.reply({ embeds: [introEmbed, buildDraftEmbed(session)], components: [buildBrawlerSelectMenu(session, "draft_action", "🚫 Wybierz brawlera do zbanowania"), buildCancelButton()] });
+    }
+  }
+};
