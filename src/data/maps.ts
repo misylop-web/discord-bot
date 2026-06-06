@@ -15,4 +15,40 @@ export const MODES: Record<GameMode, ModeData> = {
 export const MAPS: MapData[] = [
   { name: "Hard Rock Mine", mode: "gem_grab", emoji: "⛏️", description: "Klasyczna mapa z mineralami i wąskim centrum. Idealna dla kontrolerów.", bestBrawlers: ["Spike", "Gene", "Otis", "Sandy"], banTargets: ["Gene", "Sandy", "Mortis"], type: "closed" },
   { name: "Crystal Arcade", mode: "gem_grab", emoji: "🎮", description: "Otwarta mapa z korytarzami po bokach. Snajperzy i ranged dominują.", bestBrawlers: ["Piper", "Bea", "Spike", "Griff"], banTargets: ["Piper", "Leon", "Crow"], type: "open" },
-  { name: "Undermine", mode: "gem_grab", emoji: "🏚️", description: "Mapa z wieloma wąskimi przejściami. Throwerzy i kontrolerzy.",
+  { name: "Undermine", mode: "gem_grab", emoji: "🏚️", description: "Mapa z wieloma wąskimi przejściami. Throwerzy i kontrolerzy.", bestBrawlers: ["Barley", "Dynamike", "Gene", "Sandy"], banTargets: ["Barley", "Dynamike", "Mortis"], type: "closed" },
+  { name: "Double Swoosh", mode: "gem_grab", emoji: "💫", description: "Symetryczna mapa z dwiema głównymi osiami. Silny drafting jest kluczem.", bestBrawlers: ["Otis", "Byron", "Colette", "Chester"], banTargets: ["Sandy", "Gene", "Otis"], type: "mixed" },
+  { name: "Backyard Bowl", mode: "brawl_ball", emoji: "🏡", description: "Klasyczna, otwarta mapa Brawl Ball. Tanks i szybkie brawlery dominują.", bestBrawlers: ["Bibi", "Edgar", "Mortis", "Frank"], banTargets: ["Mortis", "Edgar", "Bibi"], type: "open" },
+  { name: "Super Beach", mode: "brawl_ball", emoji: "🏖️", description: "Otwarta mapa plażowa. Brawlerzy z mobilnością i zasięgiem mają przewagę.", bestBrawlers: ["Leon", "Crow", "Bibi", "Chester"], banTargets: ["Mortis", "Leon", "Edgar"], type: "open" },
+  { name: "Pinhole Punt", mode: "brawl_ball", emoji: "🕳️", description: "Mapa z wąskim środkowym przejściem. Silna dla kontrolerów i throwerów.", bestBrawlers: ["Barley", "Sprout", "Sandy", "Meeple"], banTargets: ["Mortis", "Sandy", "Barley"], type: "closed" },
+  { name: "Triple Dribble", mode: "brawl_ball", emoji: "🏀", description: "Mapa z trzema równoległymi korytarzami. Bardzo otwarta — snajperzy silni.", bestBrawlers: ["Piper", "Bibi", "Nani", "Chester"], banTargets: ["Piper", "Mortis", "Edgar"], type: "open" },
+  { name: "Safe Zone", mode: "heist", emoji: "🔒", description: "Klasyczna mapa Heist z silnymi pozycjami obronnymi.", bestBrawlers: ["Griff", "Brock", "Dynamike", "Bull"], banTargets: ["Griff", "Bull", "Dynamike"], type: "mixed" },
+  { name: "Kaboom Canyon", mode: "heist", emoji: "💥", description: "Mapa z wąwozem — dużo bushy i osłon. Silna dla throwerów.", bestBrawlers: ["Dynamike", "Barley", "Griff", "Tick"], banTargets: ["Dynamike", "Barley", "Brock"], type: "closed" },
+  { name: "Bridge Too Far", mode: "heist", emoji: "🌉", description: "Most centralny — kto kontroluje środek, kontroluje grę.", bestBrawlers: ["Brock", "Piper", "Griff", "Sam"], banTargets: ["Brock", "Piper", "Griff"], type: "open" },
+  { name: "Hot Potato", mode: "heist", emoji: "🥔", description: "Kompaktowa mapa wymagająca szybkich ataków na sejf.", bestBrawlers: ["Bull", "Darryl", "Sam", "Griff"], banTargets: ["Bull", "Griff", "Sam"], type: "closed" },
+  { name: "Sunset Vista", mode: "knockout", emoji: "🌅", description: "Otwarta mapa — snajperzy i długi zasięg dominują. Uważaj na flanki.", bestBrawlers: ["Piper", "Bea", "Chester", "Crow"], banTargets: ["Piper", "Bea", "Chester"], type: "open" },
+  { name: "Dueling Beetles", mode: "knockout", emoji: "🐛", description: "Mapa z bushy i wąskimi przejściami. Assassini mają tu pole do popisu.", bestBrawlers: ["Leon", "Crow", "Mortis", "Edgar"], banTargets: ["Leon", "Mortis", "Edgar"], type: "closed" },
+  { name: "Out in the Open", mode: "knockout", emoji: "🏜️", description: "Bardzo otwarta — mało osłon. Ranged i snipers mają ogromną przewagę.", bestBrawlers: ["Piper", "Nani", "Chester", "Crow"], banTargets: ["Piper", "Chester", "Crow"], type: "open" },
+  { name: "Brasswork", mode: "knockout", emoji: "⚙️", description: "Mapa z mechanicznymi elementami. Mieszany styl — wymaga wszechstronności.", bestBrawlers: ["Chester", "Crow", "Leon", "Spike"], banTargets: ["Chester", "Crow", "Piper"], type: "mixed" },
+  { name: "Snake Prairie", mode: "bounty", emoji: "🐍", description: "Otwarta mapa preryjna — snajperzy rządzą. Uważaj na ekspozycję.", bestBrawlers: ["Piper", "Bea", "Nani", "Chester"], banTargets: ["Piper", "Bea", "Crow"], type: "open" },
+  { name: "Hideout", mode: "bounty", emoji: "🌿", description: "Mapa z dużą ilością bushy — flankerzy i assassini silni.", bestBrawlers: ["Leon", "Crow", "Chester", "Mortis"], banTargets: ["Leon", "Crow", "Mortis"], type: "closed" },
+  { name: "Layer Cake", mode: "bounty", emoji: "🎂", description: "Wielopoziomowa mapa — kontrola wysokości daje przewagę.", bestBrawlers: ["Piper", "Chester", "Crow", "Spike"], banTargets: ["Piper", "Chester", "Crow"], type: "mixed" },
+  { name: "Excel", mode: "bounty", emoji: "📊", description: "Siatka ścieżek — wielokierunkowe zagrożenia. Wszechstronne picke sprawdzają się.", bestBrawlers: ["Spike", "Crow", "Chester", "Leon"], banTargets: ["Crow", "Chester", "Leon"], type: "mixed" },
+  { name: "Open Business", mode: "hot_zone", emoji: "🏪", description: "Otwarta mapa z centralną strefą. Silna obecność ranged.", bestBrawlers: ["Sandy", "Spike", "Otis", "Chester"], banTargets: ["Sandy", "Edgar", "Damian"], type: "open" },
+  { name: "Ring of Fire", mode: "hot_zone", emoji: "🔥", description: "Okrągła strefa — brawlerzy z AoE dominują.", bestBrawlers: ["Barley", "Sandy", "Frank", "Otis"], banTargets: ["Sandy", "Barley", "Edgar"], type: "mixed" },
+  { name: "Parallel Plays", mode: "hot_zone", emoji: "⏸️", description: "Dwie równoległe strefy — split push jest kluczowy.", bestBrawlers: ["Crow", "Sandy", "Byron", "Chester"], banTargets: ["Sandy", "Crow", "Edgar"], type: "mixed" },
+  { name: "Flooded Mine", mode: "hot_zone", emoji: "💧", description: "Ciasna mapa z ograniczonymi ścieżkami. Throwerzy i kontrolerzy silni.", bestBrawlers: ["Dynamike", "Sandy", "Otis", "Barley"], banTargets: ["Sandy", "Dynamike", "Edgar"], type: "closed" }
+];
+
+export function getMapsByMode(mode: GameMode): MapData[] { return MAPS.filter(m => m.mode === mode); }
+
+export function getModeKey(modeName: string): GameMode | null {
+  const normalized = modeName.toLowerCase().replace(/\s/g, "_");
+  if (MODES[normalized as GameMode]) return normalized as GameMode;
+  const modeMap: Record<string, GameMode> = {
+    "gem grab": "gem_grab", "gemgrab": "gem_grab", "klejnoty": "gem_grab",
+    "brawl ball": "brawl_ball", "brawlball": "brawl_ball", "pilka": "brawl_ball",
+    "heist": "heist", "skok": "heist", "knockout": "knockout", "ko": "knockout",
+    "bounty": "bounty", "nagroda": "bounty", "hot zone": "hot_zone", "hotzone": "hot_zone", "strefa": "hot_zone"
+  };
+  return modeMap[modeName.toLowerCase()] ?? null;
+}
