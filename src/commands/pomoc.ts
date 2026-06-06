@@ -17,4 +17,9 @@ export const pomoc: Command = {
         { name: "🎯 `/draft start <tryb> <mapa>`", value: "Interaktywny draft ban/pick.\n• 6 banów (3 per drużyna)\n• 6 picków (format 1-2-2-1)", inline: false },
         { name: "📋 `/draft status` • 🗑️ `/draft anuluj`", value: "Zarządzanie aktywnym draftem.", inline: false }
       )
-      .addFields({ name: "🏆 S-Tier (Czerwiec 2026)", value: "🦇 Edgar · 🦁 Damian ·
+      .addFields({ name: "🏆 S-Tier (Czerwiec 2026)", value: "🦇 Edgar · 🦁 Damian · 💜 Colette · 🃏 Chester · 🐦‍⬛ Crow · ⚰️ Mortis · ⭐ Starr Nova · ⚾ Bibi · 🗡️ Najia · 🌟 Lumi · 🎨 Otis · 🔩 Pierce", inline: false })
+      .setTimestamp()
+      .setFooter({ text: "Brawl Stars Rankedy Bot • Meta: Czerwiec 2026 • Railway 🚂" });
+    await interaction.reply({ embeds: [embed] });
+  }
+};
